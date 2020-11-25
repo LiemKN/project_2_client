@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Emailform } from './Emailform';
+import { useDispatch } from 'react-redux';
+import { sendEmail } from './actions';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const send = () => {
+    dispatch(sendEmail());
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <aside className="lefter"></aside>
+      <div className="chester">
+        <Emailform />
+        <button onClick={send}>Send Email!</button>
+      </div>
+      <aside className="righter"></aside>
     </div>
   );
 }
