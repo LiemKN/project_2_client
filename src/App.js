@@ -1,22 +1,17 @@
 import React from 'react';
 import './App.css';
+import { useSelector } from 'react-redux';
 import { Emailform } from './Emailform';
-import { useDispatch } from 'react-redux';
-import { sendEmail } from './actions';
 
 function App() {
-  const dispatch = useDispatch();
 
-  const send = () => {
-    dispatch(sendEmail());
-  }
+  const emailToDisplay = useSelector(state => state.emailToDisplay);
 
   return (
-    <div className="App">
+    <div className="emailform-root">
       <aside className="lefter"></aside>
       <div className="chester">
-        <Emailform />
-        <button onClick={send}>Send Email!</button>
+        <Emailform emailToDisplay={emailToDisplay} />
       </div>
       <aside className="righter"></aside>
     </div>
