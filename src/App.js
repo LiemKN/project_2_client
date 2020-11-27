@@ -8,7 +8,7 @@ function App() {
   const emailToDisplay = useSelector(state => state.emailToDisplay);
 
   return (
-    <div className="emailform-root">
+    <div className="code-time-capsule-root">
       <aside className="lefter"></aside>
       <div className="chester">
         <Emailform emailToDisplay={emailToDisplay} />
