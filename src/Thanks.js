@@ -1,13 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { leaveView } from './actions';
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-export function Thanks(props) {
-  const email = props.email;
+export function Thanks() {
+  const email = useSelector(state => state.emailToDisplay);
   const dispatch = useDispatch();
-  
+
   const onBack = () => {
     dispatch(leaveView(email))
   }
