@@ -6,7 +6,7 @@ import { Emailform } from './Emailform';
 function App() {
 
   const emailToDisplay = useSelector(state => state.emailToDisplay);
-  const isWaiting = useSelector(state => state.isWaiting);
+  
 
   return (
     <div className="code-time-capsule-root">
@@ -15,7 +15,6 @@ function App() {
         <Emailform emailToDisplay={emailToDisplay} />
       </div>
       <aside className="righter">
-        {isWaiting && <div className="loader" />}
       </aside>
     </div>
   );

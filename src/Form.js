@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sendEmail } from './actions';
 
 export function Form() {
@@ -9,6 +9,7 @@ export function Form() {
   const [send_day, setDay] = useState();
   const [email_address, setEmail] = useState();
   const [code_content, setCode] = useState();
+  const isWaiting = useSelector(state => state.isWaiting);
 
   const onSend = () => {
     dispatch(sendEmail(send_year, send_month, send_day, email_address, code_content));
@@ -89,6 +90,7 @@ export function Form() {
           <option value={2029}>2029</option>
           <option value={2030}>2030</option>
         </select>
+        {isWaiting && <div className="loader" />}
         <button className="send-button" onClick={onSend}>Send Email!</button>
       </div>
     </div>
