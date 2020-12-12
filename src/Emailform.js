@@ -1,19 +1,9 @@
 import React from 'react';
 import { Thanks } from './Thanks';
 import { Form } from './Form';
-import { useDispatch, useSelector } from 'react-redux';
-import { retrieveEmail } from './actions';
 
 export function Emailform(props) {
-  const dispatch = useDispatch;
   const emailToDisplay = props.emailToDisplay;
-  const isCreated = useSelector(state => state.isCreated);
-  const id = useSelector(state => state.id);
-  const code = useSelector(state => state.code);
-
-  const onLoad = () => {
-    dispatch(retrieveEmail(id));
-  }
 
   if (emailToDisplay.isFinished) {
     return (

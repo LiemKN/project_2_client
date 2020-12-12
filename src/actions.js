@@ -1,18 +1,10 @@
 export const Action = Object.freeze({
-  GetCode: 'GetCode',
   LoadEmail: 'LoadEmail',
   LeaveView: 'LeaveView',
   SetId: 'SetId',
   StartWaiting: 'StartWaiting',
   StopWaiting: 'StopWaiting',
 });
-
-export function getCode(code) {
-  return {
-    type: Action.GetCode,
-    payload: code,
-  };
-}
 
 export function loadEmail(email) {
   return {
@@ -55,23 +47,6 @@ function checkForErrors(response) {
 }
 
 const host = 'https://project2.maiyasco.me:8443';
-
-export function retrieveEmail(id) {
-  return dispatch => {
-    dispatch(startWaiting());
-    fetch(`${host}/emailform/${id}`)
-      .then(checkForErrors)
-      .then(response => response.json())
-      .then(data => {
-        if (data.ok) {
-          dispatch(getCode(data.email[0].code_content));
-          console.log(data.email[0].code_content);
-          dispatch(stopWaiting());
-        }
-      })
-      .catch(e => console.error(e));
-  };
-}
 
 export function sendEmail(send_year, send_month, send_day, email_address, code_content) {
   const emailform = { send_year, send_month, send_day, email_address, code_content };

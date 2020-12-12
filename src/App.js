@@ -6,7 +6,6 @@ import { Emailform } from './Emailform';
 function App() {
 
   const emailToDisplay = useSelector(state => state.emailToDisplay);
-  
 
   return (
     <div className="code-time-capsule-root">

@@ -10,11 +10,6 @@ const initialState = {
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case Action.GetCode:
-      return {
-        ...state,
-        code: action.payload,
-      };
     case Action.LoadEmail:
       return {
         ...state,
